@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+
+  <!--<input type="search" placeholder="Search" [ngFormControl]="term">-->
+
+</ion-header>
+
+<ion-content padding class="home">
+
+
+
+  <ion-list class="sgs-list">
+
+    <ion-item *ngFor="let artist of artists; let i = index">
+
+      <!--<ion-thumbnail *ngIf="artist.images[3]" item-left>-->
+        <!--<img src="{{artist.images[3].url}}">-->
+      <!--</ion-thumbnail>-->
+
+      <!--<ion-thumbnail *ngIf="!artist.images[3]" item-left>-->
+        <!--Ops no image-->
+      <!--</ion-thumbnail>-->
+      <h2>{{i + 1}} - {{artist.name}}</h2>
+      <h3>Followers: {{artist.followers.total | number}}</h3>
+      <h3>Popularity {{artist.popularity | number}}</h3>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

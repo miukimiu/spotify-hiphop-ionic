@@ -13,7 +13,7 @@
 
   <ion-list class="sgs-list">
 
-    <ion-item *ngFor="let artist of artists; let i = index">
+    <ion-item *ngFor="let artist of artists | orderby: ['-followers.total']; let i = index">
 
       <!--<ion-thumbnail *ngIf="artist.images[3]" item-left>-->
         <!--<img src="{{artist.images[3].url}}">-->

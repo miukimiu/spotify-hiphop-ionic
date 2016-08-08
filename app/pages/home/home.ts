@@ -1,9 +1,9 @@
-import {Component} from '@angular/core';
+import {Component, ChangeDetectionStrategy} from '@angular/core';
 import {NavController} from 'ionic-angular';
-import {HiphopTugaService} from "../../services/hiphop-tuga.service";
+import {HiphopTugaService, IArtist} from '../../services/hiphop-tuga.service';
 import {Control} from '@angular/common';
 import {Observable} from "rxjs/Observable";
-import {OrderBy} from '../../pipes/order-by';
+import {OrderByPipe} from '../../pipes/sort.pipe';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
@@ -12,22 +12,24 @@ import 'rxjs/add/operator/switchMap';
 @Component({
   templateUrl: 'build/pages/home/home.html',
   providers: [HiphopTugaService],
-  pipes: [OrderBy]
+  pipes: [OrderByPipe],
 })
 export class HomePage {
 
   artists: Observable<Array<string>>;
-  //term = new Control();
-
   constructor(private navCtrl: NavController, private hiphopTugaService: HiphopTugaService ) {
-    //this.initializeItems();
 
-   hiphopTugaService.getArtists()
-      .debounceTime(400)
-      .subscribe(artists => this.artists = artists;
+  }
 
-    this.artists.filter(
-      artist => artist.followers.total === this.artist.name);
-    }
+  initializeItems() {
+    this.hiphopTugaService.getArtists()
+      .subscribe(artists => this.artists = artists);
+  }
+
+  // implement OnInit's `ngOnInit` method
+  ngOnInit() {
+    console.log('yellow my orange world!');
+    this.initializeItems();
+  }
 }
 

@@ -25,11 +25,33 @@
 // Both iOS and MD colors can be further customized if colors
 // are different per mode.
 
+// $colors: (
+//   primary:    #387ef5,
+//   secondary:  #32db64,
+//   danger:     #f53d3d,
+//   light:      #f4f4f4,
+//   dark:       #222,
+//   favorite:   #69BB7B
+// );
+//
+
 $colors: (
-  primary:    #387ef5,
-  secondary:  #32db64,
-  danger:     #f53d3d,
-  light:      #f4f4f4,
-  dark:       #222,
+  primary: #DE5765,
+  secondary: #23A14D,
+  danger: #f53d3d,
+  light: #fff,
+  dark: #0D1837,
   favorite:   #69BB7B
 );
+
+$text-color: #C0C0C0;
+$background-color: map-get($colors, dark);
+$list-text-color: $text-color;
+$list-background-color: $background-color;
+$list-border-color: #27304D;
+$link-color: map-get($colors, primary);
+$toolbar-text-color: $text-color;
+$toolbar-active-color: $link-color;
+$toolbar-inactive-color: #8c8c8c;
+$toolbar-background: map-get($colors, dark);
+$toolbar-border-color: $list-border-color;
